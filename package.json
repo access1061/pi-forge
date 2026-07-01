@@ -1,0 +1,32 @@
+{
+  "name": "pi-forge",
+  "version": "0.1.0",
+  "description": "Forge-style planning, execution, verification, and learning workflow for Pi Coding Agent",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "coding-agent",
+    "forge",
+    "workflow"
+  ],
+  "type": "module",
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ],
+    "skills": [
+      "./skills"
+    ],
+    "prompts": [
+      "./prompts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "license": "MIT"
+}
