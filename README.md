@@ -112,6 +112,89 @@ pi install -l ../pi-forge
 
 ---
 
+## 모든 프로젝트에 전역 적용하는 방법
+
+Pi Forge를 특정 프로젝트 하나가 아니라 **모든 프로젝트에서 기본으로 사용**하고 싶다면 `-l` 옵션을 빼고 설치합니다.
+
+```bash
+pi install https://github.com/access1061/pi-forge
+```
+
+또는 git 형식으로 설치할 수도 있습니다.
+
+```bash
+pi install git:github.com/access1061/pi-forge
+```
+
+중요한 차이는 다음과 같습니다.
+
+| 설치 방식 | 명령어 | 적용 범위 |
+|---|---|---|
+| 전역 설치 | `pi install https://github.com/access1061/pi-forge` | 모든 프로젝트 |
+| 프로젝트 전용 설치 | `pi install -l https://github.com/access1061/pi-forge` | 현재 프로젝트만 |
+
+즉, 모든 프로젝트에서 쓰려면 아래처럼 설치하면 됩니다.
+
+```bash
+pi install https://github.com/access1061/pi-forge
+```
+
+설치 후 아무 프로젝트 폴더에서 Pi를 실행합니다.
+
+```bash
+cd 내프로젝트경로
+pi
+```
+
+Pi가 실행되면 다음 명령을 사용할 수 있습니다.
+
+```text
+/forge 작업명
+/forge-status
+/forge-done
+```
+
+예시는 다음과 같습니다.
+
+```text
+/forge 로그인 오류 수정
+```
+
+설치가 잘 되었는지 확인하려면 다음 명령을 사용합니다.
+
+```bash
+pi list
+```
+
+패키지를 최신 상태로 갱신하려면 다음 명령을 사용합니다.
+
+```bash
+pi update --extensions
+```
+
+Pi 자체와 패키지를 모두 업데이트하려면 다음 명령을 사용합니다.
+
+```bash
+pi update --all
+```
+
+정리하면, 전역 적용 순서는 다음과 같습니다.
+
+```bash
+pi install https://github.com/access1061/pi-forge
+pi list
+cd 원하는프로젝트
+pi
+```
+
+그다음 Pi 안에서 다음처럼 시작합니다.
+
+```text
+/forge 작업명
+```
+
+---
+
 ## 임시 테스트 방법
 
 설치하지 않고 한 번만 테스트하려면 다음처럼 실행합니다.
@@ -346,6 +429,12 @@ pi -e ./pi-forge
 
 ```bash
 pi install -l ./pi-forge
+```
+
+모든 프로젝트에 적용하려면 `-l` 없이 설치합니다.
+
+```bash
+pi install https://github.com/access1061/pi-forge
 ```
 
 ---
